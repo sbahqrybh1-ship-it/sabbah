@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>الإصباح في اللغة العربية</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<style>
+:root{--mr:#7a1f3d;--mr2:#5e1630;--bg:#fff;--card:#fbf7ee;--tx:#2a2328;--mut:#6f6a6d;--bd:#e6dfd2;--gold:#c2993f;--ok:#2f7d57;--okb:#e6f3ec;--no:#b83a3a;--nob:#fbeaea;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17131a;--card:#221c25;--tx:#f1ebe3;--mut:#a79fa4;--bd:#3a323d;--mr:#c4587c;--okb:#17301f;--nob:#3a1b1b}}
+:root[data-theme="dark"]{--bg:#17131a;--card:#221c25;--tx:#f1ebe3;--mut:#a79fa4;--bd:#3a323d;--mr:#c4587c;--okb:#17301f;--nob:#3a1b1b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.9 "IBM Plex Sans Arabic",Tahoma,sans-serif}
+h1,h2,h3{font-family:Alexandria,"IBM Plex Sans Arabic",sans-serif;color:var(--mr);margin:.3em 0}
+main{max-width:860px;margin:auto;padding:16px}
+.hero{text-align:center;padding:28px 8px 12px}
+.lamp{width:84px;height:84px}
+.glow{animation:gl 3s ease-in-out infinite alternate;transform-origin:center}
+@keyframes gl{from{opacity:.55}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.glow{animation:none}}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px;margin:14px 0}
+.btn{font:inherit;font-weight:600;background:var(--mr);color:#fff;border:0;border-radius:10px;padding:10px 22px;cursor:pointer}
+.btn:hover{background:var(--mr2)}.btn:disabled{opacity:.5;cursor:default}
+.btn.o{background:transparent;color:var(--mr);border:1px solid var(--mr)}
+input,select,textarea{font:inherit;width:100%;padding:10px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx);margin:4px 0 10px}
+.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1;min-width:140px}
+.opt{display:block;width:100%;text-align:right;font:inherit;background:var(--bg);color:var(--tx);border:1px solid var(--bd);border-radius:10px;padding:10px 14px;margin:6px 0;cursor:pointer}
+.opt.sel{border-color:var(--mr);box-shadow:inset 0 0 0 1px var(--mr)}
+.opt.ok{background:var(--okb);border-color:var(--ok)}.opt.no{background:var(--nob);border-color:var(--no)}
+.tag{display:inline-block;font-size:13px;border:1px solid var(--gold);color:var(--gold);border-radius:20px;padding:0 10px;margin-inline-end:6px}
+.bar{height:8px;background:var(--bd);border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;background:var(--mr)}
+.fb{border-radius:10px;padding:12px;margin-top:10px}.fb.ok{background:var(--okb)}.fb.no{background:var(--nob)}
+.msg{background:var(--nob);color:var(--no);padding:10px;border-radius:10px;margin:10px 0}
+.empty{color:var(--mut);text-align:center;padding:20px}
+.hero{background:#7a1f3d;border-radius:16px;margin:10px 0 16px;padding:22px 12px 18px}.hero h1{color:#fff}.hero div,.hero p{color:#f3e9ee!important}.hero div:last-child{color:#e8c872!important;font-weight:600}.hero .lamp rect{fill:#c2993f}
+.hl{color:#c0392b;font-weight:700;text-decoration:underline}label{display:block;font-size:14px;color:var(--mut)}details{margin-top:10px}summary{cursor:pointer;color:var(--mr);font-weight:600}
+.sc{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:560px}th,td{border-bottom:1px solid var(--bd);padding:8px;text-align:right}
+nav{display:flex;gap:8px;justify-content:space-between;align-items:center}
+footer{text-align:center;color:var(--mut);border-top:2px solid var(--gold);margin-top:30px;padding:16px 8px;font-size:14px}
+</style>
+</head>
+<body>
+<main id="app"><div class="empty">جارٍ التحميل…</div></main>
+<footer><b>الإصباح في اللغة العربية</b> — الصف الثاني عشر – الفصل الدراسي الأول<br>إعداد أ. صبّاح قريبه</footer>
+<script>
+const $=s=>document.querySelector(s), A=$("#app");
+const esc=t=>String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const LV={easy:"سهل",mid:"متوسط",hard:"صعب"}, BR={sci:"العلمي",lit:"الأدبي"};
+const LAMP='<svg class="lamp" viewBox="0 0 100 100" aria-hidden="true"><circle class="glow" cx="50" cy="38" r="34" fill="#f3d98a" opacity=".35"/><path d="M50 14c-14 0-24 10-24 23 0 8 4 14 9 19 3 3 4 6 4 10h22c0-4 1-7 4-10 5-5 9-11 9-19 0-13-10-23-24-23z" fill="#fff3c4" stroke="#c2993f" stroke-width="3"/><rect x="39" y="70" width="22" height="6" rx="3" fill="#7a1f3d"/><rect x="42" y="78" width="16" height="6" rx="3" fill="#7a1f3d"/><path d="M44 52l6-14 6 14" fill="none" stroke="#c2993f" stroke-width="2.5"/></svg>';
+let db,user,uid,owner=false,me=null,lessons=[],questions=[],extras=[],exams=[],examq=[],S={v:"home"};
+const col=n=>db.collection(n);
+const rows=async n=>(await col(n).get()).docs.map(d=>({id:d.id,...d.data()}));
+async function load(){lessons=(await rows("lessons")).sort((a,b)=>(a.order||0)-(b.order||0));questions=(await rows("questions")).sort((a,b)=>(a.order||0)-(b.order||0));try{extras=await rows("extras")}catch(e){extras=[]}try{exams=await rows("exams");examq=await rows("examq")}catch(e){exams=[];examq=[]}
+ try{const m=await col("students").doc(uid).get();me=m.data()||null}catch(e){me=null}}
+async function init(){
+ try{[db,user]=await Promise.all([claude.use("db"),claude.use("user")])}catch(e){}
+ if(!db||!user){A.innerHTML='<div class="card"><div class="hero">'+LAMP+'<h1>الإصباح في اللغة العربية</h1></div><div class="msg">يتطلب فتح المنصة تسجيل الدخول عبر حساب Claude، ولا يمكن حفظ التقدم من دونه.</div></div>';return}
+ uid=await user.id();owner=user.isOwner();
+ try{await load()}catch(e){return fail(e)}
+ if(owner)S={v:"admin"};
+ render()}
+function fail(e){A.innerHTML='<div class="msg">تعذّر الاتصال أو الحفظ. حاول مرة أخرى. '+esc(e&&e.message||"")+'</div><button class="btn" onclick="init()">إعادة المحاولة</button>'}
+function go(v,x){S={v,...x};render();scrollTo(0,0)}
+function hero(){return '<div class="hero">'+LAMP+'<h1>الإصباح في اللغة العربية</h1><div>الصف الثاني عشر – الفصل الدراسي الأول</div><p style="color:var(--mut)">تعلّم، وتدرّب، وأتقن</p></div>'}
+function head(){return '<nav><button class="btn o" onclick="go(\'home\')">الرئيسية</button>'+(owner?'<button class="btn o" onclick="go(\'admin\')">لوحة المدير</button>':'')+'</nav>'}
+function render(){({home,lessonIntro,quiz,report,admin,student,review}[S.v]||home)()}
+
+/* ---------- الطالب ---------- */
+function myAttempts(){return (S.att||[])}
+async function home(){
+ let h=head()+hero();
+ if(!me||S.edit){h+='<div class="card"><h2>اسم الطالب</h2><input id="nm" placeholder="اكتب اسمك" maxlength="60" value="'+esc(me?me.name:"")+'"><h3>اختر الفرع الدراسي للمتابعة</h3><div class="row"><button class="btn o" id="b-sci">العلمي</button><button class="btn o" id="b-lit">الأدبي</button></div>'+(me?'<p><button class="btn o" id="cn">إلغاء والعودة</button></p>':'')+'<p style="color:var(--mut);font-size:14px">يُربط سجلك بحسابك لا باسمك فقط؛ لذا لا يمكن لطالب آخر الاطلاع على نتائجك.</p><div id="er"></div></div>';
+  A.innerHTML=h;let br="";if($("#cn"))$("#cn").onclick=()=>go("home");
+  ["sci","lit"].forEach(b=>$("#b-"+b).onclick=async()=>{br=b;const n=$("#nm").value.trim();
+   if(n.length<2){$("#er").innerHTML='<div class="msg">أدخل اسمك أولًا.</div>';return}
+   try{const old=me;me={name:n,branch:b,uid,createdAt:old?old.createdAt:Date.now(),lastActive:Date.now()};await col("students").doc(uid).set(me);S={v:"home"};render()}catch(e){fail(e)}});return}
+ let att=[];try{att=(await col("attempts/"+uid+"/items").get()).docs.map(d=>d.data())}catch(e){}
+ S.att=att;
+ const ls=lessons.filter(l=>l.published&&l.branch===me.branch);
+ h+='<div class="card"><b>أهلًا '+esc(me.name)+'</b> <span class="tag">'+BR[me.branch]+'</span><button class="btn o" style="float:left" id="chg">تغيير الفرع</button></div><h2>الدروس المتاحة</h2>';
+ if(!ls.length)h+='<div class="card empty">لم يُنشر أي درس لفرعك بعد.</div>';
+ ls.forEach(l=>{const a=att.filter(x=>x.lessonId===l.id&&x.kind==="mastery"),best=a.length?Math.max(...a.map(x=>x.pct)):null;
+  h+='<div class="card"><h3>'+esc(l.title)+'</h3>'+seqTxt(att,l.id)+'<div style="margin-top:10px"><button class="btn" data-l="'+l.id+'">ادخل الدرس</button></div></div>'});
+ A.innerHTML=h;
+ A.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>go("lessonIntro",{lid:b.dataset.l}));
+ $("#chg").onclick=()=>go("home",{edit:true})}
+function seqTxt(att,lid){const a=att.filter(x=>x.lessonId===lid).sort((x,y)=>x.at-y.at);const f=a.filter(x=>!x.round&&x.kind!=="mastery")[0];if(!f)return '<span style="color:var(--mut)">لم تبدأ بعد</span>';const last=a[a.length-1].sid,s=a.filter(x=>x.sid===last);return '<div>علامتك في المحاولة الأولى: <b>'+f.score+'/'+f.total+'</b> ('+f.pct+'%)</div><div style="color:var(--mut)">تسلسل آخر محاولة: '+s.map(x=>(x.round?'علاج '+x.round:(x.kind==="mastery"?'إتقان':'الأولى'))+': '+x.score+'/'+x.total).join(' ← ')+'</div>'}
+function lessonIntro(){const l=lessons.find(x=>x.id===S.lid);
+ A.innerHTML=head()+'<div class="card"><span class="tag">'+BR[l.branch]+'</span><h2>'+esc(l.title)+'</h2><h3>القاعدة</h3><div style="white-space:pre-wrap">'+esc(l.rule||"لم يُضَف شرح لهذه القاعدة بعد.")+'</div>'+(l.remember?'<div class="fb ok"><b>تذكّر:</b> '+esc(l.remember)+'</div>':'')+'</div><div class="card"><h3>اختر المستوى</h3><div class="row"><button class="btn o" data-lv="all">كل المستويات</button><button class="btn o" data-lv="easy">سهل</button><button class="btn o" data-lv="mid">متوسط</button><button class="btn o" data-lv="hard">صعب</button></div></div>';
+ A.querySelectorAll("[data-lv]").forEach(b=>b.onclick=()=>{
+  let qs=questions.filter(q=>q.lessonId===l.id&&q.published&&(b.dataset.lv==="all"||q.level===b.dataset.lv));
+  if(!qs.length){alert("لا توجد أسئلة منشورة بهذا المستوى.");return}
+  go("quiz",{lid:l.id,qs,i:0,ans:[],kind:"practice"})})}
+function quiz(){const q=S.qs[S.i],l=lessons.find(x=>x.id===S.lid);S.pick=null;S.done=false;
+ A.innerHTML=head()+'<div class="card"><span class="tag">'+BR[l.branch]+'</span><span class="tag">'+esc(l.title)+'</span><span class="tag">'+LV[q.level]+'</span>'+(S.round?'<span class="tag">اختبر نفسك — جولة '+S.round+'</span>':'')+'<div style="margin:8px 0">سؤال '+(S.i+1)+' من '+S.qs.length+'</div><div class="bar"><i style="width:'+(S.i/S.qs.length*100)+'%"></i></div><h3 style="color:var(--tx)">'+esc(q.text)+'</h3><div id="os">'+q.options.map((o,i)=>'<button class="opt" data-i="'+i+'">'+esc(o)+'</button>').join("")+'</div><button class="btn" id="chk" disabled>تحقّق من الإجابة</button><div id="fb" aria-live="polite"></div></div>';
+ A.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{if(S.done)return;S.pick=+b.dataset.i;A.querySelectorAll(".opt").forEach(x=>x.classList.toggle("sel",x===b));$("#chk").disabled=false});
+ $("#chk").onclick=()=>{if(S.done||S.pick===null)return;S.done=true;const ok=S.pick===q.correct;S.ans.push({qid:q.id,pick:S.pick,ok,skill:q.skill||"",level:q.level});
+  A.querySelectorAll(".opt").forEach((x,i)=>{x.disabled=true;if(i===q.correct)x.classList.add("ok");else if(i===S.pick)x.classList.add("no")});
+  $("#fb").innerHTML='<div class="fb '+(ok?"ok":"no")+'"><b>'+(ok?"إجابة صحيحة، أحسنت!":"ليست هذه الإجابة الصحيحة، ولا بأس؛ لنتعرّف إلى السبب.")+'</b><br>الإجابة الصحيحة: '+esc(q.options[q.correct])+'<br>'+(q.why?esc(q.why):'<i>لم يُضَف تعليل لهذا السؤال.</i>')+'</div><button class="btn" id="nx" style="margin-top:10px">'+(S.i+1<S.qs.length?"السؤال التالي":"عرض التقرير")+'</button>';
+  $("#chk").disabled=true;$("#nx").onclick=()=>{if(S.i+1<S.qs.length){S.i++;quiz()}else finish()}}}
+async function finish(){const tot=S.ans.length,c=S.ans.filter(a=>a.ok).length,pct=Math.round(c/tot*100);
+ const sk={};S.ans.forEach(a=>{const k=a.skill||"غير محددة";(sk[k]=sk[k]||[0,0]);sk[k][1]++;if(a.ok)sk[k][0]++});
+ const sid=S.sid||String(Date.now()),rd=S.round||0;const rec={uid,lessonId:S.lid,kind:S.kind,score:c,total:tot,pct,skills:sk,answers:S.ans,at:Date.now(),sid,round:rd};
+ let prev=null;try{prev=(await col("attempts/"+uid+"/items").get()).docs.map(d=>d.data()).filter(x=>x.lessonId===S.lid&&x.kind===S.kind).sort((a,b)=>b.at-a.at)[0]}catch(e){}
+ try{await col("attempts/"+uid+"/items").add(rec);await col("students").doc(uid).update({lastActive:Date.now()})}catch(e){return fail(e)}
+ go("report",{rec,prev,ans:S.ans,used:S.used||[]})}
+function report(){const r=S.rec,p=S.prev,need=(window.MASTERY||90);
+ const strong=[],weak=[];Object.entries(r.skills).forEach(([k,[c,t]])=>(c===t?strong:weak).push(k+" ("+c+"/"+t+")"));
+ A.innerHTML=head()+'<div class="card"><h2>التقرير</h2><p>الدرجة: <b>'+r.score+' من '+r.total+'</b> ('+r.pct+'%) — صحيحة: '+r.score+'، خاطئة: '+(r.total-r.score)+'</p><h3>نقاط القوة</h3>'+(strong.length?'<ul>'+strong.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>':'<p style="color:var(--mut)">لم تظهر بعد مهارة أُجيبت كلها إجابة صحيحة.</p>')+'<h3>ما يحتاج إلى مراجعة</h3>'+(weak.length?'<ul>'+weak.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul><p>الخطة: راجع القاعدة، ثم أعد التدريب على هذه المهارات.</p>':'<p>لا أخطاء في هذه المحاولة.</p>')+'<h3>متابعة التحسن</h3><p>'+(p?'من '+p.pct+'% في المحاولة السابقة إلى '+r.pct+'% الآن.':'هذه أول محاولة مسجلة لك في هذا النوع من التدريب.')+'</p>'+(r.pct>=need?'<div class="fb ok">بلغت معيار الإتقان ('+need+'%) في هذه المجموعة. لم تُقيَّم المهارات غير المشمولة بها بعد.</div>':'<div class="fb no">لم تبلغ معيار الإتقان ('+need+'%) بعد؛ راجع القاعدة ثم حاول مجددًا.</div>')+'<div class="row" style="margin-top:12px"><button class="btn" id="rt">مراجعة القاعدة</button><button class="btn o" id="ms">اختبار إتقان</button></div></div>';
+ $("#rt").onclick=()=>go("lessonIntro",{lid:r.lessonId});
+ $("#ms").onclick=()=>{const qs=questions.filter(q=>q.lessonId===r.lessonId&&q.published);if(!qs.length)return alert("لا أسئلة.");go("quiz",{lid:r.lessonId,qs:qs.sort(()=>Math.random()-.5),i:0,ans:[],kind:"mastery"})}}
+
+/* ---------- المدير ---------- */
+async function admin(){
+ if(!owner){A.innerHTML='<div class="msg">هذه الصفحة للمدير فقط.</div>';return}
+ let st=[];try{st=await rows("students")}catch(e){}
+ let h=head()+'<h2>لوحة المدير</h2><div class="row"><div class="card"><b>'+st.length+'</b><br>الطلاب</div><div class="card"><b>'+st.filter(s=>s.branch==="sci").length+'</b><br>العلمي</div><div class="card"><b>'+st.filter(s=>s.branch==="lit").length+'</b><br>الأدبي</div></div>';
+ h+='<div class="card"><h3>درس جديد</h3><input id="lt" placeholder="اسم الدرس (حرفيًا كما في الملزمة)"><select id="lb"><option value="">اختر الفرع</option><option value="sci">العلمي</option><option value="lit">الأدبي</option></select><textarea id="lr" rows="4" placeholder="شرح القاعدة"></textarea><input id="lm" placeholder="خلاصة «تذكّر»"><button class="btn" id="al">حفظ الدرس</button></div>';
+ h+='<h3>الدروس والأسئلة</h3>';
+ lessons.forEach(l=>{const n=questions.filter(q=>q.lessonId===l.id).length;h+='<div class="card"><b>'+esc(l.title)+'</b> <span class="tag">'+(BR[l.branch]||"")+'</span><span class="tag">'+(l.published?"منشور":"مسوّدة")+'</span> '+n+' سؤال<div class="row" style="margin-top:8px"><button class="btn o" data-rv="'+l.id+'">مراجعة الأسئلة</button><button class="btn o" data-pub="'+l.id+'">'+(l.published?"إيقاف":"نشر")+'</button><button class="btn o" data-del="'+l.id+'">حذف</button></div></div>'});
+ if(!lessons.length)h+='<div class="card empty">أضف درسًا ثم استورد أسئلته.</div>';
+ h+='<div class="card"><h3>استيراد أسئلة (JSON)</h3><select id="il">'+lessons.map(l=>'<option value="'+l.id+'">'+esc(l.title)+'</option>').join("")+'</select><textarea id="ij" rows="6" dir="ltr" placeholder=\'[{"text":"...","options":["أ","ب","ج"],"correct":0,"why":"...","level":"easy|mid|hard","skill":"..."}]\'></textarea><p style="color:var(--mut);font-size:14px">تدخل الأسئلة كمسوّدة لتراجعها قبل النشر. ضع علامة <code>"extra":true</code> للتدريبات الإضافية.</p><button class="btn" id="ia">استيراد</button> <button class="btn o" id="pa">نشر كل أسئلة الدرس</button></div>';
+ h+='<h3>سجل الطلاب</h3><div class="card sc"><table><tr><th>الاسم</th><th>الفرع</th><th>آخر نشاط</th><th></th></tr>'+st.map(s=>'<tr><td>'+esc(s.name)+'</td><td>'+(BR[s.branch]||"")+'</td><td>'+new Date(s.lastActive||0).toLocaleDateString("ar")+'</td><td><button class="btn o" data-st="'+s.id+'">التفاصيل</button></td></tr>').join("")+(st.length?'':'<tr><td colspan="4" class="empty">لا طلاب بعد.</td></tr>')+'</table></div><div id="er"></div>';
+ A.innerHTML=h;
+ const run=async f=>{try{await f();await load();admin()}catch(e){$("#er").innerHTML='<div class="msg">'+esc(e.message||e)+'</div>'}};
+ $("#al").onclick=()=>run(async()=>{const t=$("#lt").value.trim(),b=$("#lb").value;if(!t||!b)throw Error("أدخل الاسم والفرع.");await col("lessons").add({title:t,branch:b,rule:$("#lr").value,remember:$("#lm").value,published:false,order:lessons.length+1})});
+ A.querySelectorAll("[data-pub]").forEach(b=>b.onclick=()=>run(async()=>{const l=lessons.find(x=>x.id===b.dataset.pub);await col("lessons").doc(l.id).update({published:!l.published})}));
+ A.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{if(confirm("حذف الدرس وأسئلته؟ لا يمكن التراجع."))run(async()=>{for(const q of questions.filter(q=>q.lessonId===b.dataset.del))await col("questions").doc(q.id).delete();await col("lessons").doc(b.dataset.del).delete()})});
+ $("#ia").onclick=()=>run(async()=>{const arr=JSON.parse($("#ij").value),lid=$("#il").value;if(!lid)throw Error("اختر درسًا.");
+  arr.forEach((q,i)=>{if(!q.text||!Array.isArray(q.options)||q.options.length<2||!Number.isInteger(q.correct)||q.correct<0||q.correct>=q.options.length)throw Error("السؤال "+(i+1)+" غير صالح.");if(!LV[q.level])throw Error("السؤال "+(i+1)+": المستوى يجب easy أو mid أو hard.")});
+  for(const q of arr)await col("questions").add({lessonId:lid,text:q.text,options:q.options,correct:q.correct,why:q.why||"",level:q.level,skill:q.skill||"",extra:!!q.extra,published:false,order:Date.now()})});
+ $("#pa").onclick=()=>run(async()=>{for(const q of questions.filter(q=>q.lessonId===$("#il").value))await col("questions").doc(q.id).update({published:true})});
+ A.querySelectorAll("[data-st]").forEach(b=>b.onclick=()=>go("student",{sid:b.dataset.st}));A.querySelectorAll("[data-rv]").forEach(b=>b.onclick=()=>go("review",{lid:b.dataset.rv}))}
+function review(){if(!owner){A.innerHTML='<div class="msg">للمدير فقط.</div>';return}
+ const l=lessons.find(x=>x.id===S.lid),qs=questions.filter(q=>q.lessonId===S.lid);
+ A.innerHTML=head()+'<button class="btn o" onclick="go(\'admin\')">رجوع</button><h2>'+esc(l.title)+' — '+BR[l.branch]+'</h2><p style="color:var(--mut)">راجع كل سؤال: الإجابة المظلّلة هي المقترحة. صحّحها إن لزم ثم اعتمد السؤال لينشر للطلاب.</p>'+qs.map((q,i)=>'<div class="card"><b>'+(i+1)+'. '+esc(q.text)+'</b><br><span class="tag">'+LV[q.level]+'</span><span class="tag">'+(q.published?"منشور":"مسوّدة")+'</span>'+q.options.map((o,j)=>'<div class="opt'+(j===q.correct?' ok':'')+'">'+(j+1)+'. '+esc(o)+'</div>').join("")+'<div class="fb ok">'+esc(q.why)+'</div><select data-c="'+q.id+'">'+q.options.map((o,j)=>'<option value="'+j+'"'+(j===q.correct?' selected':'')+'>الإجابة الصحيحة: '+(j+1)+'</option>').join("")+'</select><div class="row"><button class="btn o" data-w="'+q.id+'">تعديل التعليل</button><button class="btn o" data-p="'+q.id+'">'+(q.published?"إيقاف":"اعتماد ونشر")+'</button><button class="btn o" data-x="'+q.id+'">حذف</button></div></div>').join("")+'<div id="er"></div>';
+ const run=async f=>{try{await f();await load();review()}catch(e){$("#er").innerHTML='<div class="msg">'+esc(e.message||e)+'</div>'}},Q=id=>questions.find(x=>x.id===id);
+ A.querySelectorAll("[data-c]").forEach(s=>s.onchange=()=>run(()=>col("questions").doc(s.dataset.c).update({correct:+s.value})));
+ A.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>run(()=>col("questions").doc(b.dataset.p).update({published:!Q(b.dataset.p).published})));
+ A.querySelectorAll("[data-w]").forEach(b=>b.onclick=()=>{const t=prompt("التعليل:",Q(b.dataset.w).why||"");if(t!==null)run(()=>col("questions").doc(b.dataset.w).update({why:t}))});
+ A.querySelectorAll("[data-x]").forEach(b=>b.onclick=()=>{if(confirm("حذف السؤال؟ لا يمكن التراجع."))run(()=>col("questions").doc(b.dataset.x).delete())})}
+async function student(){let s,at=[];try{s=(await col("students").doc(S.sid).get()).data();at=(await col("attempts/"+S.sid+"/items").get()).docs.map(d=>d.data()).sort((a,b)=>a.at-b.at)}catch(e){return fail(e)}
+ A.innerHTML=head()+'<div class="card"><h2>'+esc(s.name)+'</h2><span class="tag">'+BR[s.branch]+'</span>'+seqAdmin(at)+'<div class="sc"><table><tr><th>التاريخ</th><th>الدرس</th><th>النوع</th><th>الدرجة</th></tr>'+at.map(a=>'<tr><td>'+new Date(a.at).toLocaleString("ar")+'</td><td>'+esc((lessons.find(l=>l.id===a.lessonId)||{}).title||"")+'</td><td>'+(a.kind==="mastery"?"إتقان":"تدريب")+'</td><td>'+a.score+'/'+a.total+' ('+a.pct+'%)</td></tr>').join("")+(at.length?"":'<tr><td colspan="4" class="empty">لا محاولات.</td></tr>')+'</table></div></div>'}
+function seqAdmin(at){const g={};at.forEach(a=>{const k=a.lessonId+"|"+(a.sid||a.at);(g[k]=g[k]||[]).push(a)});return '<h3>تسلسل العلامات في كل درس</h3>'+(Object.keys(g).length?Object.values(g).map(s=>{s.sort((x,y)=>x.at-y.at);const t=(lessons.find(l=>l.id===s[0].lessonId)||{}).title||"",lp=s[s.length-1].pct;return '<div class="fb '+(lp===100?'ok':'no')+'"><b>'+esc(t)+'</b> — '+new Date(s[0].at).toLocaleDateString("ar")+'<br>'+s.map(x=>(x.round?'علاج '+x.round:(x.kind==="mastery"?'إتقان':'المحاولة الأولى'))+': '+x.score+'/'+x.total).join(' ← ')+'<br>'+(lp===100?'أتقن الدرس (آخر جولة 100%)':'لم يكتمل الإتقان بعد')+'</div>'}).join(""):'<p>لا محاولات.</p>')}
+async function report(){const r=S.rec,need=90,wrong=(S.ans||[]).filter(a=>!a.ok);
+ const qm=id=>questions.find(q=>q.id===id)||extras.find(q=>q.id===id)||null;
+ let seq=[];try{seq=(await col("attempts/"+uid+"/items").get()).docs.map(d=>d.data()).filter(x=>x.sid===r.sid).sort((a,b)=>a.at-b.at)}catch(e){}
+ const st=seq.map(x=>(x.round?'علاج '+x.round:(x.kind==="mastery"?'إتقان':'المحاولة الأولى'))+': '+x.score+'/'+x.total).join(' ← ');
+ let h=head()+'<div class="card"><h2>'+(r.round?'اختبر نفسك — جولة '+r.round:'تقرير الدرس')+'</h2><p>الدرجة: <b>'+r.score+' من '+r.total+'</b> ('+r.pct+'%)</p>'+(r.round||r.kind==="mastery"?'':'<p>سُجّلت هذه العلامة في سجلك كعلامة المحاولة الأولى.</p>')+(st?'<p><b>تسلسل علاماتك:</b> '+esc(st)+'</p>':'');
+ if(wrong.length){h+='<h3>راجع القاعدة في الأسئلة التي أخطأت فيها</h3>'+wrong.map(a=>{const q=qm(a.qid);return q?'<div class="fb no"><b>'+esc(q.text)+'</b><br>إجابتك: '+esc(q.options[a.pick])+'<br>الصحيحة: '+esc(q.options[q.correct])+'<br>'+esc(q.why||"")+'</div>':""}).join("")+'<p><b>اختبر نفسك:</b> ستحصل الآن على أسئلة جديدة على القاعدة نفسها لكل سؤال أخطأت فيه، وتكرّرها حتى تجيب عنها كلها إجابة صحيحة.</p><button class="btn" id="rm">اختبر نفسك</button> <button class="btn o" id="rl">مراجعة القاعدة أولًا</button>'}
+ else h+='<div class="fb ok">'+(r.round?'أحسنت! أجبت عن كل أسئلة هذه الجولة إجابة صحيحة، فقد أتقنت القواعد التي أخطأت فيها وفهمت الدرس.':'ممتاز! كل إجاباتك في هذه المحاولة صحيحة.')+'</div><div style="margin-top:12px"><button class="btn o" id="ms">اختبار إتقان على الدرس</button></div>';
+ A.innerHTML=h+'</div>';
+ if($("#rl"))$("#rl").onclick=()=>go("lessonIntro",{lid:r.lessonId});
+ if($("#ms"))$("#ms").onclick=()=>{const qs=questions.filter(q=>q.lessonId===r.lessonId&&q.published);if(!qs.length)return alert("لا أسئلة.");go("quiz",{lid:r.lessonId,qs:qs.sort(()=>Math.random()-.5),i:0,ans:[],kind:"mastery"})};
+ if($("#rm"))$("#rm").onclick=()=>{const num=r.lessonId.split("-")[1],used=(S.used||[]).slice(),picks=[];
+  wrong.forEach(a=>{const o=qm(a.qid),ex=extras.find(e=>e.published&&String(e.lesson)===num&&o&&e.skill===o.skill&&!used.includes(e.id)&&!picks.includes(e));if(ex)picks.push(ex)});
+  if(!picks.length)return alert("لا توجد تدريبات إضافية جديدة على هذه القواعد حاليًا. راجع القاعدة وأخبر معلمك.");
+  picks.forEach(e=>used.push(e.id));go("quiz",{lid:r.lessonId,qs:picks,i:0,ans:[],kind:"remedial",sid:r.sid,round:(r.round||0)+1,used})}}
+/* ===== تحديث: هوية، تلوين، اختبارات شاملة، لوحة تحكم كاملة ===== */
+function hero(){return '<div class="hero">'+LAMP+'<h1>الإصباح في اللغة العربية</h1><div style="color:var(--mut)">منصة تعليمية تفاعلية تدريبية منهجية.</div><div>الصف الثاني عشر – الفصل الدراسي الأول</div><p style="color:var(--mut)">تعلّم، وتدرّب، وأتقن</p><div style="color:var(--gold);font-weight:600">إعداد أ. صبّاح قريبه</div></div>'}
+const fmt=t=>esc(t).replace(/\[\[(.+?)\]\]/g,'<span class="hl">$1</span>');
+const ord=(a,b)=>(a.order||0)-(b.order||0);
+const KL=x=>x.round?'علاج '+x.round:(x.kind==="mastery"?'إتقان':x.kind==="exam"?'الاختبار':'المحاولة الأولى');
+async function init(){
+ const to=ms=>new Promise((_,r)=>setTimeout(()=>r(Error("انتهت مهلة الاتصال")),ms));
+ try{if(typeof claude==="undefined")throw Error("الصفحة لا تعمل خارج رابط المنصة");
+  [db,user]=await Promise.race([Promise.all([claude.use("db"),claude.use("user")]),to(12000)]);
+  uid=await Promise.race([user.id(),to(8000)]);owner=user.isOwner();await Promise.race([load(),to(20000)])}
+ catch(e){A.innerHTML='<div class="card"><div class="hero">'+LAMP+'<h1>الإصباح في اللغة العربية</h1></div><div class="msg">تعذّر تحميل المنصة: '+esc(e.message)+'.<br>إن تكرر هذا فغالبًا لأن هذا الرابط يشترط حساب Claude للدخول؛ والنسخة المستقلة بلا حساب تحتاج إعداد Supabase.</div><button class="btn" onclick="location.reload()">إعادة المحاولة</button></div>';return}
+ if(owner)S={v:"admin"};render()}
+async function home(){
+ let h=head()+hero();
+ if(!me||S.edit){A.innerHTML=h+'<div class="card"><h2>اسم الطالب</h2><input id="nm" placeholder="اكتب اسمك" maxlength="60" value="'+esc(me?me.name:"")+'"><h3>اختر الفرع الدراسي للمتابعة</h3><div class="row"><button class="btn o" id="b-sci">العلمي</button><button class="btn o" id="b-lit">الأدبي</button></div>'+(me?'<p><button class="btn o" id="cn">إلغاء والعودة</button></p>':'')+'<p style="color:var(--mut);font-size:14px">يُربط سجلك بحسابك لا باسمك فقط؛ لذا لا يمكن لطالب آخر الاطلاع على نتائجك.</p><div id="er"></div></div>';
+  if($("#cn"))$("#cn").onclick=()=>go("home");
+  ["sci","lit"].forEach(b=>$("#b-"+b).onclick=async()=>{const n=$("#nm").value.trim();if(n.length<2){$("#er").innerHTML='<div class="msg">أدخل اسمك أولًا.</div>';return}
+   try{const old=me;me={name:n,branch:b,uid,createdAt:old?old.createdAt:Date.now(),lastActive:Date.now()};await col("students").doc(uid).set(me);go("home")}catch(e){fail(e)}});return}
+ let att=[];try{att=(await col("attempts/"+uid+"/items").get()).docs.map(d=>d.data())}catch(e){}
+ const ls=lessons.filter(l=>l.published&&l.branch===me.branch);
+ h+='<div class="card"><b>أهلًا '+esc(me.name)+'</b> <span class="tag">'+BR[me.branch]+'</span><button class="btn o" style="float:left" id="chg">تغيير الفرع أو الاسم</button></div><h2>الدروس المتاحة</h2>';
+ if(!ls.length)h+='<div class="card empty">لم يُنشر أي درس لفرعك بعد.</div>';
+ ls.forEach(l=>{h+='<div class="card"><h3>'+esc(l.title)+'</h3>'+seqTxt(att,l.id)+'<div style="margin-top:10px"><button class="btn" data-l="'+l.id+'">ادخل الدرس</button></div></div>'});
+ const ex=exams.filter(e=>e.branch===me.branch).sort(ord);
+ if(ex.length)h+='<h2>اختبارات تجريبية شاملة</h2>'+ex.map(e=>{const a=att.filter(x=>x.lessonId===e.id).sort((x,y)=>x.at-y.at);return '<div class="card"><h3>'+esc(e.title)+'</h3>'+(a.length?'<div>آخر علامة: <b>'+a[a.length-1].score+'/'+a[a.length-1].total+'</b> — أفضل علامة: <b>'+Math.max(...a.map(x=>x.score))+'/'+a[a.length-1].total+'</b></div>':'<span style="color:var(--mut)">لم تبدأ بعد</span>')+'<div style="margin-top:10px"><button class="btn" data-e="'+e.id+'">'+(a.length?'أعد الاختبار':'ابدأ الاختبار')+'</button></div></div>'}).join("");
+ A.innerHTML=h;
+ A.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>go("lessonIntro",{lid:b.dataset.l}));
+ A.querySelectorAll("[data-e]").forEach(b=>b.onclick=()=>{const qs=examq.filter(q=>q.examId===b.dataset.e&&q.published!==false).sort(ord);if(!qs.length)return alert("لا أسئلة في هذا الاختبار بعد.");go("quiz",{lid:b.dataset.e,qs,i:0,ans:[],kind:"exam",sid:String(Date.now()),round:0,used:[]})});
+ $("#chg").onclick=()=>go("home",{edit:true})}
+function quiz(){const q=S.qs[S.i],l=lessons.find(x=>x.id===S.lid)||exams.find(x=>x.id===S.lid)||{title:"",branch:"sci"};S.pick=null;S.done=false;
+ A.innerHTML=head()+'<div class="card"><span class="tag">'+BR[l.branch]+'</span><span class="tag">'+esc(l.title)+'</span><span class="tag">'+LV[q.level]+'</span>'+(S.round?'<span class="tag">أسئلة علاجية — جولة '+S.round+'</span>':'')+'<div style="margin:8px 0">سؤال '+(S.i+1)+' من '+S.qs.length+'</div><div class="bar"><i style="width:'+(S.i/S.qs.length*100)+'%"></i></div><h3 style="color:var(--tx)">'+fmt(q.text)+'</h3><div id="os">'+q.options.map((o,i)=>'<button class="opt" data-i="'+i+'">'+esc(o)+'</button>').join("")+'</div><button class="btn" id="chk" disabled>تحقّق من الإجابة</button><div id="fb" aria-live="polite"></div></div>';
+ A.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{if(S.done)return;S.pick=+b.dataset.i;A.querySelectorAll(".opt").forEach(x=>x.classList.toggle("sel",x===b));$("#chk").disabled=false});
+ $("#chk").onclick=()=>{if(S.done||S.pick===null)return;S.done=true;const ok=S.pick===q.correct;S.ans.push({qid:q.id,pick:S.pick,ok,skill:q.skill||"",level:q.level});
+  A.querySelectorAll(".opt").forEach((x,i)=>{x.disabled=true;if(i===q.correct)x.classList.add("ok");else if(i===S.pick)x.classList.add("no")});
+  $("#fb").innerHTML='<div class="fb '+(ok?"ok":"no")+'"><b>'+(ok?"إجابة صحيحة، أحسنت!":"ليست هذه الإجابة الصحيحة، ولا بأس؛ لنتعرّف إلى السبب.")+'</b><br>الإجابة الصحيحة: '+esc(q.options[q.correct])+'<br>'+(q.why?esc(q.why):'<i>لم يُضَف تعليل لهذا السؤال.</i>')+'</div><button class="btn" id="nx" style="margin-top:10px">'+(S.i+1<S.qs.length?"السؤال التالي":"عرض التقرير")+'</button>';
+  $("#chk").disabled=true;$("#nx").onclick=()=>{if(S.i+1<S.qs.length){S.i++;quiz()}else finish()}}}
+async function report(){const r=S.rec,wrong=(S.ans||[]).filter(a=>!a.ok),isEx=r.kind==="exam";
+ const qm=id=>questions.find(q=>q.id===id)||extras.find(q=>q.id===id)||examq.find(q=>q.id===id)||null;
+ let seq=[];try{seq=(await col("attempts/"+uid+"/items").get()).docs.map(d=>d.data()).filter(x=>x.sid===r.sid).sort((a,b)=>a.at-b.at)}catch(e){}
+ const lb=x=>KL(x)+': '+x.score+'/'+x.total;
+ let h=head()+'<div class="card"><h2>'+(r.round?'جولة علاجية '+r.round:isEx?'نتيجة الاختبار الشامل':'تقرير الدرس')+'</h2><p>الدرجة: <b>'+r.score+' من '+r.total+'</b> ('+r.pct+'%)</p>'+(r.round||r.kind!=="practice"?'':'<p>سُجّلت هذه العلامة في سجلك كعلامة المحاولة الأولى.</p>')+(seq.length?'<p><b>تسلسل علاماتك:</b> '+esc(seq.map(lb).join(' ← '))+'</p>':'');
+ if(wrong.length){h+='<h3>راجع القاعدة في الأسئلة التي أخطأت فيها</h3>'+wrong.map(a=>{const q=qm(a.qid);return q?'<div class="fb no"><b>'+fmt(q.text)+'</b><br>إجابتك: '+esc(q.options[a.pick])+'<br>الصحيحة: '+esc(q.options[q.correct])+'<br>'+esc(q.why||"")+'</div>':""}).join("")+(isEx?'':'<p>ستحصل على أسئلة جديدة على القاعدة نفسها لكل سؤال أخطأت فيه، وتكرّرها حتى تجيب عنها كلها إجابة صحيحة.</p><button class="btn" id="rm">أكمل .. واختبر نفسك بالأسئلة التي أخطأت فيها</button>')+'<button class="btn o" id="rs">أعد الاختبار من جديد</button>'}
+ else h+='<div class="fb ok">'+(r.round?'أحسنت! أجبت عن كل أسئلة هذه الجولة إجابة صحيحة، فقد أتقنت القواعد التي أخطأت فيها وفهمت الدرس.':isEx?'ممتاز! كل إجاباتك صحيحة.':'ممتاز! كل إجاباتك في هذه المحاولة صحيحة.')+'</div><button class="btn o" id="rs" style="margin-top:12px">أعد الاختبار من جديد</button>'+(isEx?'':'<button class="btn o" id="ms">اختبار إتقان على الدرس</button>');
+ A.innerHTML=h+'</div>';
+ if($("#rs"))$("#rs").onclick=()=>{const qs=(isEx?examq.filter(q=>q.examId===r.lessonId&&q.published!==false):questions.filter(q=>q.lessonId===r.lessonId&&q.published)).sort(ord);go("quiz",{lid:r.lessonId,qs,i:0,ans:[],kind:isEx?"exam":"practice",sid:String(Date.now()),round:0,used:[]})};
+ if($("#ms"))$("#ms").onclick=()=>{const qs=questions.filter(q=>q.lessonId===r.lessonId&&q.published);if(!qs.length)return alert("لا أسئلة.");go("quiz",{lid:r.lessonId,qs:qs.sort(()=>Math.random()-.5),i:0,ans:[],kind:"mastery",sid:String(Date.now()),round:0,used:[]})};
+ if($("#rm"))$("#rm").onclick=()=>{const num=String(r.lessonId).split("-")[1],used=(S.used||[]).slice(),picks=[];
+  wrong.forEach(a=>{const o=qm(a.qid),ex=extras.find(e=>e.published!==false&&String(e.lesson)===num&&o&&e.skill===o.skill&&!used.includes(e.id)&&!picks.includes(e));if(ex)picks.push(ex)});
+  if(!picks.length)return alert("استنفدتَ التدريبات الإضافية لهذه القواعد. راجع تعليل أسئلتك ثم أعد الاختبار من جديد.");
+  picks.forEach(e=>used.push(e.id));go("quiz",{lid:r.lessonId,qs:picks,i:0,ans:[],kind:"remedial",sid:r.sid,round:(r.round||0)+1,used})}}
+
+/* ---------- لوحة المدير الكاملة ---------- */
+const FORM=(x,id,wl)=>(wl?'<label>رقم الدرس (1-6)</label><input id="k'+id+'" type="number" min="1" max="6" value="'+(x.lesson||1)+'">':'')+'<label>نص السؤال (للتلوين بالأحمر ضع الكلمة بين [[ ]])</label><textarea id="t'+id+'" rows="3">'+esc(x.text||"")+'</textarea><label>الخيارات (كل خيار في سطر)</label><textarea id="o'+id+'" rows="4">'+esc((x.options||[]).join("\n"))+'</textarea><div class="row"><div><label>رقم الإجابة الصحيحة</label><input id="c'+id+'" type="number" min="1" value="'+((x.correct??0)+1)+'"></div><div><label>المستوى</label><select id="l'+id+'">'+Object.keys(LV).map(k=>'<option value="'+k+'"'+((x.level||"mid")===k?' selected':'')+'>'+LV[k]+'</option>').join("")+'</select></div><div><label>المهارة</label><input id="s'+id+'" value="'+esc(x.skill||"")+'"></div><div><label>الترتيب</label><input id="n'+id+'" type="number" value="'+(x.order||0)+'"></div></div><label>التعليل</label><textarea id="w'+id+'" rows="3">'+esc(x.why||"")+'</textarea><label><input type="checkbox" id="p'+id+'" style="width:auto"'+(x.published!==false?" checked":"")+'> منشور للطلاب</label>';
+const READ=(id,wl)=>{const o=$("#o"+id).value.split("\n").map(s=>s.trim()).filter(Boolean),c=+$("#c"+id).value-1,t=$("#t"+id).value.trim();if(!t||o.length<2||!(c>=0&&c<o.length))throw Error("تحقّق من نص السؤال والخيارات (خياران على الأقل) ورقم الإجابة الصحيحة.");return{...(wl?{lesson:+$("#k"+id).value}:{}),text:t,options:o,correct:c,level:$("#l"+id).value,skill:$("#s"+id).value.trim(),order:+$("#n"+id).value||0,why:$("#w"+id).value,published:$("#p"+id).checked}};
+const qCards=(arr,wl)=>arr.map((x,i)=>'<div class="card"><b>'+(i+1)+'. '+fmt(x.text)+'</b><br><span class="tag">'+LV[x.level]+'</span><span class="tag">'+esc(x.skill||"")+'</span><span class="tag">'+(x.published===false?"مسوّدة":"منشور")+'</span>'+x.options.map((o,j)=>'<div class="opt'+(j===x.correct?' ok':'')+'">'+(j+1)+'. '+esc(o)+'</div>').join("")+'<div class="fb ok">'+esc(x.why||"")+'</div><details><summary>تعديل السؤال والخيارات والتعليل</summary>'+FORM(x,x.id,wl)+'<div class="row"><button class="btn" data-qs="'+x.id+'">حفظ التعديل</button><button class="btn o" data-qx="'+x.id+'">حذف</button></div></details></div>').join("")||'<div class="card empty">لا توجد أسئلة.</div>';
+const run=async f=>{try{await f();await load();go(S.v,S)}catch(e){const m=$("#er");if(m)m.innerHTML='<div class="msg">'+esc(e.message||e)+'</div>';else alert(e.message||e)}};
+const bindQ=(coll,wl)=>{A.querySelectorAll("[data-qs]").forEach(b=>b.onclick=()=>run(()=>col(coll).doc(b.dataset.qs).update(READ(b.dataset.qs,wl))));
+ A.querySelectorAll("[data-qx]").forEach(b=>b.onclick=()=>{if(confirm("حذف السؤال؟ لا يمكن التراجع."))run(()=>col(coll).doc(b.dataset.qx).delete())})};
+const dl=(n,t,m)=>{const u=URL.createObjectURL(new Blob([t],{type:m||"application/json"})),a=document.createElement("a");a.href=u;a.download=n;a.click()};
+const TABS=[["ov","نظرة عامة"],["ls","الدروس والأسئلة"],["ex","التدريبات الإضافية"],["em","الاختبارات الشاملة"],["st","الطلاب"],["bk","النسخ والتصدير"]],PANELS={};
+async function admin(){
+ if(!owner){A.innerHTML='<div class="msg">هذه الصفحة للمدير فقط.</div>';return}
+ const tab=S.tab||"ov";
+ A.innerHTML=head()+'<h2>لوحة المدير</h2><nav>'+TABS.map(t=>'<button class="btn'+(t[0]===tab?'':' o')+'" data-tab="'+t[0]+'">'+t[1]+'</button>').join("")+'</nav><div id="er"></div><div id="pn"></div>';
+ A.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>go("admin",{tab:b.dataset.tab}));
+ await PANELS[tab]($("#pn"))}
+PANELS.ov=async P=>{const st=await rows("students");const c=(t,n)=>'<div class="card"><b>'+n+'</b><br>'+t+'</div>';
+ P.innerHTML='<div class="row">'+c("الطلاب",st.length)+c("العلمي",st.filter(s=>s.branch==="sci").length)+c("الأدبي",st.filter(s=>s.branch==="lit").length)+'</div><div class="row">'+c("الدروس",lessons.length)+c("الأسئلة الأصلية",questions.length)+c("التدريبات الإضافية",extras.length)+c("أسئلة الاختبارات الشاملة",examq.length)+'</div>'};
+PANELS.ls=async P=>{
+ P.innerHTML=lessons.map(l=>{const q=questions.filter(x=>x.lessonId===l.id);return '<div class="card"><b>'+esc(l.title)+'</b> <span class="tag">'+BR[l.branch]+'</span><span class="tag">'+(l.published?"منشور":"مسوّدة")+'</span> '+q.length+' سؤال ('+q.filter(x=>x.published).length+' منشور)<div class="row" style="margin-top:8px"><button class="btn o" data-rv="'+l.id+'">الأسئلة</button><button class="btn o" data-pub="'+l.id+'">'+(l.published?"إيقاف":"نشر")+'</button><button class="btn o" data-del="'+l.id+'">حذف</button></div><details><summary>تعديل الدرس</summary><label>العنوان</label><input id="lt'+l.id+'" value="'+esc(l.title)+'"><label>الفرع</label><select id="lb'+l.id+'"><option value="sci"'+(l.branch==="sci"?" selected":"")+'>العلمي</option><option value="lit"'+(l.branch==="lit"?" selected":"")+'>الأدبي</option></select><label>الترتيب</label><input id="lo'+l.id+'" type="number" value="'+(l.order||0)+'"><label>شرح القاعدة</label><textarea id="lr'+l.id+'" rows="7">'+esc(l.rule||"")+'</textarea><label>خلاصة «تذكّر»</label><textarea id="lm'+l.id+'" rows="2">'+esc(l.remember||"")+'</textarea><button class="btn" data-sv="'+l.id+'">حفظ الدرس</button></details></div>'}).join("")
+ +'<div class="card"><h3>درس جديد</h3><input id="nt" placeholder="اسم الدرس"><select id="nb"><option value="">اختر الفرع</option><option value="sci">العلمي</option><option value="lit">الأدبي</option></select><textarea id="nr" rows="4" placeholder="شرح القاعدة"></textarea><input id="nm2" placeholder="خلاصة «تذكّر»"><button class="btn" id="al">حفظ الدرس</button></div>'
+ +'<div class="card"><h3>استيراد أسئلة (JSON)</h3><select id="il">'+lessons.map(l=>'<option value="'+l.id+'">'+esc(l.title)+' — '+BR[l.branch]+'</option>').join("")+'</select><textarea id="ij" rows="5" dir="ltr" placeholder=\'[{"text":"...","options":["أ","ب"],"correct":0,"why":"...","level":"easy|mid|hard","skill":"..."}]\'></textarea><button class="btn" id="ia">استيراد كمسوّدة</button></div>';
+ A.querySelectorAll("[data-rv]").forEach(b=>b.onclick=()=>go("review",{lid:b.dataset.rv}));
+ A.querySelectorAll("[data-pub]").forEach(b=>b.onclick=()=>run(()=>{const l=lessons.find(x=>x.id===b.dataset.pub);return col("lessons").doc(l.id).update({published:!l.published})}));
+ A.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{if(confirm("حذف الدرس وكل أسئلته؟ لا يمكن التراجع."))run(async()=>{for(const q of questions.filter(q=>q.lessonId===b.dataset.del))await col("questions").doc(q.id).delete();await col("lessons").doc(b.dataset.del).delete()})});
+ A.querySelectorAll("[data-sv]").forEach(b=>b.onclick=()=>run(()=>{const i=b.dataset.sv,t=$("#lt"+i).value.trim();if(!t)throw Error("العنوان مطلوب.");return col("lessons").doc(i).update({title:t,branch:$("#lb"+i).value,order:+$("#lo"+i).value||0,rule:$("#lr"+i).value,remember:$("#lm"+i).value})}));
+ $("#al").onclick=()=>run(async()=>{const t=$("#nt").value.trim(),b=$("#nb").value;if(!t||!b)throw Error("أدخل الاسم والفرع.");await col("lessons").add({title:t,branch:b,rule:$("#nr").value,remember:$("#nm2").value,published:false,order:lessons.length+1})});
+ $("#ia").onclick=()=>run(async()=>{const arr=JSON.parse($("#ij").value),lid=$("#il").value;arr.forEach((q,i)=>{if(!q.text||!Array.isArray(q.options)||q.options.length<2||!Number.isInteger(q.correct)||q.correct<0||q.correct>=q.options.length)throw Error("السؤال "+(i+1)+" غير صالح.");if(!LV[q.level])throw Error("السؤال "+(i+1)+": المستوى easy أو mid أو hard.")});
+  let p=questions.length+1;for(const q of arr)await col("questions").add({lessonId:lid,text:q.text,options:q.options,correct:q.correct,why:q.why||"",level:q.level,skill:q.skill||"",extra:false,published:false,order:p++})});};
+function review(){if(!owner)return;const l=lessons.find(x=>x.id===S.lid),qs=questions.filter(x=>x.lessonId===S.lid).sort(ord);
+ A.innerHTML=head()+'<button class="btn o" onclick="go(\'admin\',{tab:\'ls\'})">رجوع للدروس</button><h2>'+esc(l.title)+' — '+BR[l.branch]+'</h2><div id="er"></div>'+qCards(qs)+'<div class="card"><h3>إضافة سؤال جديد</h3>'+FORM({published:true},"new")+'<button class="btn" id="add">إضافة السؤال</button></div>';
+ bindQ("questions");$("#add").onclick=()=>run(()=>col("questions").add({lessonId:l.id,extra:false,...READ("new")}))}
+PANELS.ex=async P=>{const n=String(S.xl||"1");
+ P.innerHTML='<p style="color:var(--mut)">تُستعمل هذه الأسئلة في «أكمل واختبر نفسك»، وتُطابَق بالمهارة نفسها في الدرس؛ فاحرص أن تكون المهارة مطابقة تمامًا لمهارة الأسئلة الأصلية.</p><label>الدرس</label><select id="xl">'+[1,2,3,4,5,6].map(k=>'<option'+(String(k)===n?' selected':'')+'>'+k+'</option>').join("")+'</select>'+qCards(extras.filter(e=>String(e.lesson)===n).sort((a,b)=>(a.skill||"").localeCompare(b.skill||"")||ord(a,b)),1)+'<div class="card"><h3>إضافة تدريب إضافي</h3>'+FORM({published:true,lesson:+n},"new",1)+'<button class="btn" id="add">إضافة</button></div>';
+ $("#xl").onchange=()=>go("admin",{tab:"ex",xl:$("#xl").value});bindQ("extras",1);$("#add").onclick=()=>run(()=>col("extras").add(READ("new",1)))};
+PANELS.em=async P=>{
+ if(S.eid){const e=exams.find(x=>x.id===S.eid);
+  P.innerHTML='<button class="btn o" id="bk">رجوع</button><div class="card"><h3>'+esc(e.title)+' — '+BR[e.branch]+'</h3><input id="et" value="'+esc(e.title)+'"><button class="btn o" id="es">حفظ العنوان</button><button class="btn o" id="ed">حذف الاختبار كاملًا</button></div>'+qCards(examq.filter(q=>q.examId===e.id).sort(ord))+'<div class="card"><h3>إضافة سؤال للاختبار</h3>'+FORM({published:true},"new")+'<button class="btn" id="add">إضافة</button></div>';
+  $("#bk").onclick=()=>go("admin",{tab:"em"});bindQ("examq");
+  $("#es").onclick=()=>run(()=>col("exams").doc(e.id).update({title:$("#et").value.trim()||e.title}));
+  $("#ed").onclick=()=>{if(confirm("حذف الاختبار وكل أسئلته؟"))run(async()=>{for(const q of examq.filter(q=>q.examId===e.id))await col("examq").doc(q.id).delete();await col("exams").doc(e.id).delete();S={v:"admin",tab:"em"}})};
+  $("#add").onclick=()=>run(()=>col("examq").add({examId:e.id,...READ("new")}));return}
+ P.innerHTML=exams.sort(ord).map(e=>'<div class="card"><b>'+esc(e.title)+'</b> <span class="tag">'+BR[e.branch]+'</span> '+examq.filter(q=>q.examId===e.id).length+' أسئلة<div style="margin-top:8px"><button class="btn o" data-eo="'+e.id+'">فتح وتعديل</button></div></div>').join("")+'<div class="card"><h3>اختبار جديد</h3><input id="xt" placeholder="عنوان الاختبار"><select id="xb"><option value="sci">العلمي</option><option value="lit">الأدبي</option></select><button class="btn" id="xa">إنشاء</button></div>';
+ A.querySelectorAll("[data-eo]").forEach(b=>b.onclick=()=>go("admin",{tab:"em",eid:b.dataset.eo}));
+ $("#xa").onclick=()=>run(()=>{const t=$("#xt").value.trim();if(!t)throw Error("العنوان مطلوب.");return col("exams").add({title:t,branch:$("#xb").value,order:exams.length+1})})};
+PANELS.st=async P=>{const st=await rows("students");
+ P.innerHTML='<div class="row"><input id="sq" placeholder="ابحث بالاسم"><select id="sb"><option value="">كل الفروع</option><option value="sci">العلمي</option><option value="lit">الأدبي</option></select></div><div class="card sc"><table id="tb"></table></div>';
+ const draw=()=>{const t=$("#sq").value.trim(),b=$("#sb").value;$("#tb").innerHTML='<tr><th>الاسم</th><th>الفرع</th><th>بدأ</th><th>آخر نشاط</th><th></th></tr>'+(st.filter(s=>s.name.includes(t)&&(!b||s.branch===b)).map(s=>'<tr><td>'+esc(s.name)+'</td><td>'+BR[s.branch]+'</td><td>'+new Date(s.createdAt||0).toLocaleDateString("ar")+'</td><td>'+new Date(s.lastActive||0).toLocaleDateString("ar")+'</td><td><button class="btn o" data-st="'+s.id+'">التفاصيل</button><button class="btn o" data-rs="'+s.id+'">تصفير السجل</button><button class="btn o" data-sd="'+s.id+'">حذف</button></td></tr>').join("")||'<tr><td colspan="5" class="empty">لا طلاب.</td></tr>');
+  A.querySelectorAll("[data-st]").forEach(x=>x.onclick=()=>go("student",{sid:x.dataset.st}));
+  A.querySelectorAll("[data-rs]").forEach(x=>x.onclick=()=>{if(confirm("حذف كل محاولات هذا الطالب؟ لا يمكن التراجع."))run(()=>wipe(x.dataset.rs))});
+  A.querySelectorAll("[data-sd]").forEach(x=>x.onclick=()=>{if(confirm("حذف الطالب وسجله نهائيًا؟"))run(async()=>{await wipe(x.dataset.sd);await col("students").doc(x.dataset.sd).delete()})})};
+ draw();$("#sq").oninput=draw;$("#sb").onchange=draw};
+const wipe=async id=>{for(const d of (await col("attempts/"+id+"/items").get()).docs)await col("attempts/"+id+"/items").doc(d.id).delete()};
+PANELS.bk=async P=>{
+ P.innerHTML='<div class="card"><h3>نسخة احتياطية للمحتوى</h3><p>تشمل الدروس والأسئلة والتدريبات الإضافية والاختبارات الشاملة.</p><button class="btn" id="b1">تنزيل نسخة JSON</button><p>استرجاع من نسخة: <input type="file" id="fi" accept=".json"></p></div><div class="card"><h3>نتائج الطلاب</h3><button class="btn" id="b2">تنزيل كل النتائج CSV</button></div>';
+ $("#b1").onclick=()=>dl("isbah-backup-"+new Date().toISOString().slice(0,10)+".json",JSON.stringify({lessons,questions,extras,exams,examq}));
+ $("#fi").onchange=async e=>{const f=e.target.files[0];if(!f)return;if(!confirm("سيُستبدل المحتوى المطابق بالمعرّفات نفسها بما في الملف. متابعة؟"))return;
+  run(async()=>{const d=JSON.parse(await f.text());for(const c of ["lessons","questions","extras","exams","examq"])for(const it of (d[c]||[])){const {id,...rest}=it;await col(c).doc(id).set(rest)}})};
+ $("#b2").onclick=()=>run(async()=>{const st=await rows("students"),name=id=>(lessons.find(l=>l.id===id)||exams.find(l=>l.id===id)||{}).title||id,R=[["الاسم","الفرع","الدرس/الاختبار","النوع","الجولة","الدرجة","من","التاريخ"]];
+  for(const s of st)for(const d of (await col("attempts/"+s.id+"/items").get()).docs){const a=d.data();R.push([s.name,BR[s.branch],name(a.lessonId),KL(a),a.round||0,a.score,a.total,new Date(a.at).toLocaleString("ar")])}
+  dl("isbah-results.csv","\ufeff"+R.map(r=>r.map(c=>'"'+String(c??"").replace(/"/g,'""')+'"').join(",")).join("\n"),"text/csv")})};
+function seqAdmin(at){const g={};at.forEach(a=>{const k=a.lessonId+"|"+(a.sid||a.at);(g[k]=g[k]||[]).push(a)});return '<h3>تسلسل العلامات في كل درس واختبار</h3>'+(Object.keys(g).length?Object.values(g).map(s=>{s.sort((x,y)=>x.at-y.at);const t=(lessons.find(l=>l.id===s[0].lessonId)||exams.find(l=>l.id===s[0].lessonId)||{}).title||s[0].lessonId,lp=s[s.length-1];return '<div class="fb '+(lp.score===lp.total?'ok':'no')+'"><b>'+esc(t)+'</b> — '+new Date(s[0].at).toLocaleDateString("ar")+'<br>'+s.map(x=>KL(x)+': '+x.score+'/'+x.total).join(' ← ')+'<br>'+(lp.score===lp.total?'آخر جولة كاملة (أتقن)':'لم يكتمل الإتقان بعد')+'</div>'}).join(""):'<p>لا محاولات.</p>')}
+async function student(){let s,at=[];try{s=(await col("students").doc(S.sid).get()).data();at=(await col("attempts/"+S.sid+"/items").get()).docs.map(d=>d.data()).sort((a,b)=>a.at-b.at)}catch(e){return fail(e)}
+ A.innerHTML=head()+'<button class="btn o" onclick="go(\'admin\',{tab:\'st\'})">رجوع للطلاب</button><div class="card"><h2>'+esc(s.name)+'</h2><span class="tag">'+BR[s.branch]+'</span>'+seqAdmin(at)+'</div>'}
+
+init();
+</script>
+</body>
+</html>
